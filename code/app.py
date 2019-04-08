@@ -4,21 +4,20 @@ from tf.applib.display import prettyPre, getFeatures
 from tf.applib.highlight import hlText, hlRep
 from tf.applib.api import setupApi
 from tf.applib.links import outLink
-from atf import Atf
 
-SECTION = {'book', 'chapter'}
+SECTION = {'book', 'chapter', 'sentence'}
 
 
-class TfApp(Atf):
+class TfApp(object):
 
-  def __init__(app, *args, _asApp=False, lgc=False, check=False, silent=False, **kwargs):
-    setupApi(app, *args, _asApp=_asApp, lgc=lgc, check=check, silent=silent, **kwargs)
+  def __init__(*args, **kwargs):
+    setupApi(*args, **kwargs)
 
   def webLink(app, n, text=None, className=None, _asString=False, _noUrl=False):
     api = app.api
     T = api.T
 
-    (book, chapter) = T.sectionFromNode(n, fillup=True)
+    (book, chapter, sentence) = T.sectionFromNode(n, fillup=True)
     passageText = app.sectionStrFromNode(n)
     href = '#' if _noUrl else app.docUrl
     if text is None:
@@ -41,6 +40,15 @@ class TfApp(Atf):
     if _asString:
       return result
     dh(result)
+
+  def fmt_layoutRich(app, n):
+    api = app.api
+    F = api.F
+    after = f'{F.punc.v(n) or ""} '
+    isGap = F.gap.v(n)
+    material = F.letters.v(n) or ''
+    layout = f'<span class="gap">{material}</span>' if isGap else material
+    return f'{layout}{after}'
 
   def _plain(
       app,
@@ -76,10 +84,12 @@ class TfApp(Atf):
     elif nType in SECTION:
       if secLabel and d.withPassage:
         sep1 = app.sectionSep1
+        sep2 = app.sectionSep2
         label = (
             '{}'
             if nType == 'book' else
-            f'{{}}{sep1}{{}}'
+            f'{{}}{sep1}{{}}' if nType == 'chapter' else
+            f'{{}}{sep1}{{}}{sep2}{{}}'
         )
         rep = label.format(*T.sectionFromNode(n))
         rep = mdhtmlEsc(rep)
@@ -88,7 +98,9 @@ class TfApp(Atf):
           rep = app.webLink(n, text=f'{rep}&nbsp;', _asString=True)
       else:
         rep = ''
-      if nType == 'chapter':
+      if nType == 'sentence':
+        rep += mdhtmlEsc(f'{nType} {F.number.v(n)}') if secLabel else ''
+      elif nType == 'chapter':
         rep += mdhtmlEsc(f'{nType} {F.number.v(n)}') if secLabel else ''
       elif nType == 'book':
         rep += mdhtmlEsc(f'{nType} {F.title.v(n)}') if secLabel else ''
@@ -97,7 +109,6 @@ class TfApp(Atf):
         text = hlRep(app, text, n, d.highlights)
     else:
       rep = hlText(app, L.d(n, otype='word'), d.highlights, fmt=d.fmt)
-    lineNumbersCondition = d.lineNumbers
     if text:
       tClass = display.formatClass[d.fmt].lower()
       text = f'<span class="{tClass}">{text}</span>'
@@ -107,7 +118,6 @@ class TfApp(Atf):
         rep,
         nodeRep,
         isLinked=isLinked and nType not in SECTION,
-        lineNumbers=lineNumbersCondition,
     )
     result += rep
 
@@ -180,7 +190,7 @@ class TfApp(Atf):
     elif nType == 'chapter':
       children = L.d(n, otype='sentence')
     elif nType == 'sentence':
-      children = L.d(n, otype='line')
+      children = L.d(n, otype='word')
     elif nType == 'line':
       children = L.d(n, otype='word')
     else:
@@ -233,8 +243,6 @@ class TfApp(Atf):
           withName=True,
           **options,
       )
-      if not outer and F.type.v(n) == 'empty':
-        return
 
     tClass = display.formatClass[d.fmt].lower() if isText else app.defaultCls
     heading = f'<span class="{tClass}">{heading}</span>'

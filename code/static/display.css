@@ -78,11 +78,11 @@
 }
 .children.sentence {
     align-items: stretch;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
 }
 .children.line {
     align-items: stretch;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 .children.word {
     flex-flow: column nowrap;
@@ -111,11 +111,12 @@
     border-color: #bb8800;
 }
 .contnr.sentence {
+    flex-flow: row wrap;
     border-color: #0088bb;
 }
 .contnr.line {
-    flex-flow: row wrap;
-    border: 0;
+    flex-flow: row nowrap;
+    border-color: #44bbff;
 }
 .contnr.word {
     border-color: #bbbbbb;
@@ -164,4 +165,7 @@
     font-family: sans-serif;
     font-size: x-small;
     color: #000000;
+}
+.gap {
+    color: red;
 }

@@ -63,6 +63,10 @@ FONT = 'GentiumPlus-R.ttf'
 FONTW = 'GentiumPlus-R.woff'
 
 TEXT_FORMATS = {}
+TEXT_FORMATS = {
+    'layout-orig-full': 'layoutRich',
+}
+
 
 BROWSE_NAV_LEVEL = 2
 BROWSE_CONTENT_PRETTY = False
