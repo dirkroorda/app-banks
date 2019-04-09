@@ -12,7 +12,7 @@ OPTIONS = ()
 ORG = 'annotation'
 REPO = 'tutorials'
 CORPUS = 'Two quotes from Consider Phlebas by Iain M. Banks'
-VERSION = '0.1'
+VERSION = '0.2'
 RELATIVE = 'text-fabric/examples/banks/tf'
 
 DOI_TEXT = '10.5281/zenodo.2630416'
