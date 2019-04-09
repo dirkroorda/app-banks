@@ -10,17 +10,17 @@ PORT = dict(
 OPTIONS = ()
 
 ORG = 'annotation'
-REPO = 'tutorials'
+REPO = 'banks'
 CORPUS = 'Two quotes from Consider Phlebas by Iain M. Banks'
 VERSION = '0.2'
-RELATIVE = 'text-fabric/examples/banks/tf'
+RELATIVE = 'tf'
 
 DOI_TEXT = '10.5281/zenodo.2630416'
 DOI_URL = 'https://doi.org/10.5281/zenodo.2630416'
 
 DOC_URL = (
-    'https://nbviewer.jupyter.org/github/annotation/tutorials'
-    '/blob/master/text-fabric/convert.ipynb'
+    'https://nbviewer.jupyter.org/github/annotation/banks'
+    '/blob/master/programs/convert.ipynb'
 )
 DOC_INTRO = ''
 CHAR_URL = DOC_URL

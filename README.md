@@ -1,4 +1,8 @@
-![logo](code/static/logo.png)
+<div>
+<img src="images/phblogo.png" align="right" width="200"/>
+<img src="images/tf.png" align="right" width="200"/>
+<img src="images/dans.png" align="right" width="100"/>
+</div>
 
 # Iain M. Banks: Consider Phlebas
 
@@ -18,7 +22,7 @@ This corpus serves several functions
 * an example of how to convert texts to the TF format.
 
 This mini-corpus is documented in the
-[notebook](https://nbviewer.jupyter.org/github/annotation/tutorials/blob/master/text-fabric/convert.ipynb)
+[notebook](https://nbviewer.jupyter.org/github/annotation/banks/blob/master/programs/convert.ipynb)
 that generated the Text-Fabric data set for these quotes.
 
 It offers this [API](https://annotation.github.io/text-fabric/Api/App/).
