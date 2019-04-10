@@ -6,6 +6,8 @@
 
 # Iain M. Banks: Consider Phlebas
 
+[![DOI](https://zenodo.org/badge/179871696.svg)](https://zenodo.org/badge/latestdoi/179871696)
+
 This is a
 [Text-Fabric](https://githubv.com/annotation/text-fabric)
 example app for working with
