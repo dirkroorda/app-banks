@@ -19,11 +19,11 @@ Hint:
 
 
 class TfApp(object):
-    def __init__(*args, **kwargs):
-        setupApi(*args, **kwargs)
-        notice(args[0])
+    def __init__(app, *args, **kwargs):
+        setupApi(app, *args, **kwargs)
+        notice(app)
 
-    def webLink(app, n, text=None, className=None, _asString=False, _noUrl=False):
+    def webLink(app, n, text=None, clsName=None, _asString=False, _noUrl=False):
         api = app.api
         T = api.T
 
@@ -43,7 +43,7 @@ class TfApp(object):
             text,
             href,
             title=title,
-            className=className,
+            clsName=clsName,
             target=target,
             passage=passageText,
         )
