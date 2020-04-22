@@ -29,77 +29,68 @@ MODULE_SPECS = ()
 
 ZIP = [REPO]
 
-BASE_TYPE = "word"
-CONDENSE_TYPE = "line"
-
-NONE_VALUES = {None}
-
-STANDARD_FEATURES = None  # meaning all loadable features
-
-EXCLUDED_FEATURES = set()
-
-NO_DESCEND_TYPES = {"lex"}
-
 EXAMPLE_SECTION = "<code># Consider Phlebas</code>"
 EXAMPLE_SECTION_TEXT = "# Consider Phlebas"
 
-SECTION_SEP1 = " "
-SECTION_SEP2 = ":"
-
-WRITING = ""
-WRITING_DIR = "ltr"
-
-FONT_NAME = "Gentium"
-FONT = "GentiumPlus-R.ttf"
-FONTW = "GentiumPlus-R.woff"
-
-TEXT_FORMATS = {
-    "layout-orig-full": "layoutRich",
-}
-
-BROWSE_NAV_LEVEL = 2
-BROWSE_CONTENT_PRETTY = False
-
-VERSE_TYPES = {"sentence", "line"}
-
-LEX = None
-
-TRANSFORM = None
-
-CHILD_TYPE = dict(book="chapter", chapter="sentence", sentence="word", line="word")
-
-SUPER_TYPE = None
+DATA_DISPLAY = dict(
+    noneValues={None},
+    sectionSep1=" ",
+    sectionSep2=":",
+    writing="",
+    writingDir="ltr",
+    fontName="Gentium",
+    font="GentiumPlus-R.ttf",
+    fontw="GentiumPlus-R.woff",
+    textFormats={"layout-orig-full": "layoutRich"},
+    browseNavLevel=2,
+    browseContentPretty=False,
+)
 
 TYPE_DISPLAY = dict(
     book=dict(
         template=True,
-        bareFeatures="author",
-        features="",
-        level=3, flow="col", wrap=False, stretch=False,
+        featuresBare="author",
+        children="chapter",
+        level=3,
+        flow="col",
+        wrap=False,
+        stretch=False,
     ),
     chapter=dict(
         template=True,
-        bareFeatures="",
-        features="",
-        level=3, flow="col", wrap=False, strectch=False,
+        children="sentence",
+        level=3,
+        flow="col",
+        wrap=False,
+        strectch=False,
     ),
     sentence=dict(
         template=True,
-        bareFeatures="",
-        features="",
-        level=2, flow="col", wrap=False, strectch=True,
+        children="word",
+        level=2,
+        flow="col",
+        wrap=False,
+        strectch=True,
     ),
     line=dict(
         template="{number}",
-        bareFeatures="",
         features="terminator",
-        level=1, flow="row", wrap=True, strectch=True,
+        children="word",
+        verselike=True,
+        condense=True,
+        level=1,
+        flow="row",
+        wrap=True,
+        strectch=True,
     ),
     word=dict(
         template=True,
-        bareFeatures="",
         features="gap",
-        level=0, flow="col", wrap=False, strectch=False,
+        base=True,
+        level=0,
+        flow="col",
+        wrap=False,
+        strectch=False,
     ),
 )
 
