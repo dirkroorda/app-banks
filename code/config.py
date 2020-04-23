@@ -32,66 +32,13 @@ ZIP = [REPO]
 EXAMPLE_SECTION = "<code># Consider Phlebas</code>"
 EXAMPLE_SECTION_TEXT = "# Consider Phlebas"
 
-DATA_DISPLAY = dict(
-    noneValues={None},
-    sectionSep1=" ",
-    sectionSep2=":",
-    writing="",
-    writingDir="ltr",
-    fontName="Gentium",
-    font="GentiumPlus-R.ttf",
-    fontw="GentiumPlus-R.woff",
-    textFormats={"layout-orig-full": "layoutRich"},
-    browseNavLevel=2,
-    browseContentPretty=False,
-)
+DATA_DISPLAY = dict(textFormats={"layout-orig-full": "layoutRich"},)
 
 TYPE_DISPLAY = dict(
-    book=dict(
-        template=True,
-        featuresBare="author",
-        children="chapter",
-        level=3,
-        flow="col",
-        wrap=False,
-        stretch=False,
-    ),
-    chapter=dict(
-        template=True,
-        children="sentence",
-        level=3,
-        flow="col",
-        wrap=False,
-        strectch=False,
-    ),
-    sentence=dict(
-        template=True,
-        children="word",
-        level=2,
-        flow="col",
-        wrap=False,
-        strectch=True,
-    ),
-    line=dict(
-        template="{number}",
-        features="terminator",
-        children="word",
-        verselike=True,
-        condense=True,
-        level=1,
-        flow="row",
-        wrap=True,
-        strectch=True,
-    ),
-    word=dict(
-        template=True,
-        features="gap",
-        base=True,
-        level=0,
-        flow="col",
-        wrap=False,
-        strectch=False,
-    ),
+    book=dict(featuresBare="author",),
+    sentence=dict(flow="col",),
+    line=dict(template="{number}", features="terminator", verselike=True,),
+    word=dict(features="gap",),
 )
 
 INTERFACE_DEFAULTS = dict()
