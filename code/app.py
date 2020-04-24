@@ -1,6 +1,4 @@
-from tf.applib.helpers import dh
 from tf.applib.api import setupApi
-from tf.applib.links import outLink
 
 
 def notice(app):
@@ -22,34 +20,6 @@ class TfApp(object):
     def __init__(app, *args, **kwargs):
         setupApi(app, *args, **kwargs)
         notice(app)
-
-    def webLink(app, n, text=None, clsName=None, _asString=False, _noUrl=False):
-        api = app.api
-        T = api.T
-
-        (book, chapter, sentence) = T.sectionFromNode(n, fillup=True)
-        passageText = app.sectionStrFromNode(n)
-        href = "#" if _noUrl else app.docUrl
-        if text is None:
-            text = passageText
-            title = f"show this passage online"
-        else:
-            title = passageText
-        if _noUrl:
-            title = None
-        target = "" if _noUrl else None
-
-        result = outLink(
-            text,
-            href,
-            title=title,
-            clsName=clsName,
-            target=target,
-            passage=passageText,
-        )
-        if _asString:
-            return result
-        dh(result)
 
     def fmt_layoutRich(app, n):
         api = app.api

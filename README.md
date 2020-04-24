@@ -11,7 +11,7 @@
 [![DOI](https://zenodo.org/badge/179871696.svg)](https://zenodo.org/badge/latestdoi/179871696)
 
 This is a
-[Text-Fabric](https://githubv.com/annotation/text-fabric)
+[Text-Fabric](https://github.com/annotation/text-fabric)
 example app for working with
 a mini corpus consisting of just 99 words from the book
 [Consider Phlebas](https://en.wikipedia.org/wiki/Consider_Phlebas)

@@ -2,43 +2,30 @@ from os.path import dirname, abspath
 
 API_VERSION = 1
 
-PROTOCOL = "http://"
-HOST = "localhost"
-PORT = dict(kernel=19500, web=9500)
-
-ORG = "annotation"
-REPO = "banks"
-CORPUS = "Two quotes from Consider Phlebas by Iain M. Banks"
-VERSION = "0.2"
-RELATIVE = "tf"
-
-DOI_TEXT = "10.5281/zenodo.2630416"
-DOI_URL = "https://doi.org/10.5281/zenodo.2630416"
-
-DOC_URL = (
-    "https://nbviewer.jupyter.org/github/annotation/banks"
-    "/blob/master/programs/convert.ipynb"
+PROVENANCE_SPEC = dict(
+    org="annotation",
+    repo="banks",
+    version="0.2",
+    doi="10.5281/zenodo.2630416",
+    corpus="Two quotes from Consider Phlebas by Iain M. Banks",
 )
-DOC_INTRO = ""
-CHAR_URL = DOC_URL
-CHAR_TEXT = "How TF features represent text"
 
-FEATURE_URL = DOC_URL
+DOCS = dict(
+    docExt=".ipynb",
+    docRoot="{urlNb}",
+    docBase="{docRoot}/{org}/{repo}/blob/master/programs",
+    docPage="convert",
+    featureBase="{docBase}",
+    featurePage="convert",
+)
 
-MODULE_SPECS = ()
-
-ZIP = [REPO]
-
-EXAMPLE_SECTION = "<code># Consider Phlebas</code>"
-EXAMPLE_SECTION_TEXT = "# Consider Phlebas"
-
-DATA_DISPLAY = dict(textFormats={"layout-orig-full": "layoutRich"},)
+DATA_DISPLAY = dict(textFormats={"layout-orig-full": "layoutRich"})
 
 TYPE_DISPLAY = dict(
-    book=dict(featuresBare="author",),
-    sentence=dict(flow="col",),
-    line=dict(template="{number}", features="terminator", verselike=True,),
-    word=dict(features="gap",),
+    book=dict(featuresBare="author"),
+    sentence=dict(flow="col"),
+    line=dict(template="{number}", features="terminator", verselike=True),
+    word=dict(features="gap"),
 )
 
 INTERFACE_DEFAULTS = dict()
