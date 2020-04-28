@@ -24,6 +24,7 @@ typeDisplay:
     template: '{number}'
     verselike: true
   sentence:
-    flow: col
+    children:
+      - word
   word:
     features: gap
