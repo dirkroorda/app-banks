@@ -21,10 +21,11 @@ typeDisplay:
     featuresBare: author
   line:
     features: terminator
-    template: '{number}'
+    label: '{number}'
     verselike: true
   sentence:
     children:
       - word
   word:
     features: gap
+    super: line
