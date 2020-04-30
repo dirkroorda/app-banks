@@ -28,4 +28,4 @@ typeDisplay:
       - word
   word:
     features: gap
-    super: line
+    chunkOf: line
