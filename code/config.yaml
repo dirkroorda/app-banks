@@ -29,3 +29,5 @@ typeDisplay:
   word:
     features: gap
     chunkOf: line
+interfaceDefaults:
+  showChunks: true
