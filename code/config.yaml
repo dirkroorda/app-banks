@@ -1,7 +1,9 @@
 apiVersion: 1
 dataDisplay:
   textFormats:
-    layout-orig-full: layoutRich
+    layout-orig-full: 
+      method: layoutRich
+      style:  normal
 docs:
   docBase: '{docRoot}/{org}/{repo}/blob/master/programs'
   docExt: .ipynb
