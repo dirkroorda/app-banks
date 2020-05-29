@@ -1,4 +1,4 @@
-apiVersion: 1
+apiVersion: 2
 dataDisplay:
   textFormats:
     layout-orig-full: 
@@ -25,11 +25,5 @@ typeDisplay:
     features: terminator
     label: '{number}'
     verselike: true
-  sentence:
-    children:
-      - word
   word:
     features: gap
-    chunkOf: line
-interfaceDefaults:
-  showChunks: true
