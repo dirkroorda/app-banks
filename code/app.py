@@ -1,4 +1,4 @@
-from tf.applib.app import App
+from tf.advanced.app import App
 
 
 class TfApp(App):

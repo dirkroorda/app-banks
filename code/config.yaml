@@ -1,4 +1,4 @@
-apiVersion: 2
+apiVersion: 3
 dataDisplay:
   textFormats:
     layout-orig-full: 
@@ -24,6 +24,7 @@ typeDisplay:
   line:
     features: terminator
     label: '{number}'
+    template: '{number}'
     verselike: true
   word:
     features: gap
