@@ -28,5 +28,3 @@ This corpus serves several functions
 This mini-corpus is documented in the
 [notebook](https://nbviewer.jupyter.org/github/annotation/banks/blob/master/programs/convert.ipynb)
 that generated the Text-Fabric data set for these quotes.
-
-It offers this [API](https://annotation.github.io/text-fabric/Api/App/).
