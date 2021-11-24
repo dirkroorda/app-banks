@@ -7,8 +7,8 @@
 # Iain M. Banks: Consider Phlebas
 
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/annotation/app-banks/)](https://archive.softwareheritage.org/browse/origin/https://github.com/annotation/app-banks/)
-
 [![DOI](https://zenodo.org/badge/179871696.svg)](https://zenodo.org/badge/latestdoi/179871696)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 This is a
 [Text-Fabric](https://github.com/annotation/text-fabric)
@@ -28,3 +28,8 @@ This corpus serves several functions
 This mini-corpus is documented in the
 [notebook](https://nbviewer.jupyter.org/github/annotation/banks/blob/master/programs/convert.ipynb)
 that generated the Text-Fabric data set for these quotes.
+
+# Author
+
+[Dirk Roorda](https://github.com/dirkroorda)
+
